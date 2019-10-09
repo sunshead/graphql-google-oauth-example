@@ -1,5 +1,6 @@
 const passport = require('passport');
 const { Strategy: GoogleTokenStrategy } = require('passport-google-token');
+const config = require('./config.js');
 
 const GoogleTokenStrategyCallback = (
   accessToken,
@@ -16,8 +17,8 @@ const GoogleTokenStrategyCallback = (
 passport.use(
   new GoogleTokenStrategy(
     {
-      clientID: '',
-      clientSecret: '',
+      clientID: config.GOOGLE_CLIENT_ID,
+      clientSecret: config.GOOGLE_CLIENT_SECRET,
     },
     GoogleTokenStrategyCallback,
   ),
